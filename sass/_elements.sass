@@ -10,6 +10,7 @@
     --white: #fff
     --balck: #1B1B1B
     --gray: #747474
+    --neutral: #C3C3C3
     --bg: #FDFCFC
 
 $alfa: rgba(0, 0, 0, 0)
@@ -17,6 +18,7 @@ $prime: var(--prime)
 $black: var(--balck)
 $white: var(--white)
 $gray: var(--gray)
+$neutral: var(--neutral)
 $bg: var(--bg)
 
 body, html
@@ -97,6 +99,7 @@ p
 
     &:disabled
         background-color: #E7E7F0
+        cursor: progress
 
     &.--outline
         background-color: $bg
@@ -158,21 +161,81 @@ ul
     &-ae
         align-items: end
 
-input, select, textarea
-    border: 1px solid #DDDDDD
-    height: 48px
+label
+    display: block
+    font-family: "Inter", sans-serif
+    font-size: 12px
+    line-height: 100%
+    margin-bottom: 5px
+
+input
+    border: 1px solid $black
+    height: 52px
     width: 100%
     font-weight: normal
-    padding: 0 16px
-    background-color: $white
-    margin: 0 0 24px
+    padding: 0 14px
+    font-family: "Inter", sans-serif
+    background-color: $bg
+    margin: 0 0 20px
+    font-size: 16px
     &:focus
-        border-color: $prime
+        border-color: $black
 
-textarea
-    height: unset
-    min-height: 48px
-    padding: 12px 16px
+    &:placeholder-shown
+        border-color: $neutral
+        &:focus
+            border-color: $black
+        // &:invalid
+        //     border-color: $prime
+
+    &::placeholder
+        color: #9E9EAB
+
+.inp-check
+    position: relative
+    z-index: 1
+    margin-bottom: 31px
+    label
+        font-weight: 500
+        font-size: 12px
+        line-height: 15px
+        display: block
+        position: relative
+        text-align: left
+        z-index: 1
+        padding: 0 0 0 23px
+        &::before
+            content: ""
+            display: inline-block
+            position: absolute
+            box-sizing: border-box
+            left: 0
+            top: 0
+            width: 15px
+            height: 15px
+            border: 1px solid $neutral
+
+            background-repeat: no-repeat
+            background-position: center center
+            background-size: 0% auto
+            background-image: url('../media/check.svg')
+
+    input
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        margin: 0
+        opacity: 0
+        padding: 0
+        min-height: 100%
+        width: 100%
+        cursor: pointer
+        height: 100%
+        z-index: 111
+        &:checked ~ label::before
+            background-size: 75% auto
+            border-color: $prime
 
 mark
     color: $prime
@@ -194,3 +257,7 @@ mark
         font-size: 14px
         &.--md
             font-size: 16px
+
+@media screen and ( max-width: 720px )
+    input
+        font-size: 14px

@@ -2,7 +2,6 @@
 @import 'fonts'
 @import 'elements'
 @import 'header'
-@import 'footer'
 
 .main
 	margin: auto
@@ -26,7 +25,7 @@
 
 	.item
 		background-color: $bg
-		border: 1px solid #C3C3C3
+		border: 1px solid $neutral
 		text-align: center
 		padding: 25px 10px 15px
 
@@ -57,7 +56,7 @@
 		background-color: $bg
 		&:first-child
 			width: 53%
-			border-right: 1px solid #C3C3C3
+			border-right: 1px solid $neutral
 
 		span
 			display: block
@@ -74,7 +73,7 @@
 		&-wrap
 			width: 100%
 			margin-top: auto
-			border: 1px solid #C3C3C3
+			border: 1px solid $neutral
 
 	@media screen and ( min-width: 992px )
 		.title
@@ -143,10 +142,13 @@
 			&:first-child
 				width: 100%
 				border: none
-				border-bottom: 1px solid #C3C3C3
+				border-bottom: 1px solid $neutral
 
 			&-wrap
 				display: block
 
 			img
 				display: none
+
+@import 'footer'
+@import 'modal'

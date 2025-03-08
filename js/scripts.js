@@ -32,7 +32,7 @@ mModals.forEach(el => {
     el.addEventListener('click', (event) => {
         if (!event.target.closest('.modal-content')) {
             el.classList.remove('is_active')
-            body.classList.toggle('is_active', !menuBtn.classList.contains('is_active'))
+            body.classList.toggle('is_active', menuBtn.classList.contains('is_active'))
             cFS(0);
         }
     });

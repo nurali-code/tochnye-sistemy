@@ -1,5 +1,7 @@
 <?php
-
+// https://api.telegram.org/botteoken/getUpdates
+$token = "teoken";
+$chat_id = "id";
 
 $name = $_POST['name'];
 $contact = $_POST['tel'];

@@ -11,7 +11,7 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap"
 		rel="stylesheet">
-	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/style.css?ver=13">
 	<meta name="theme-color" content="#E63D24">
 </head>
 
@@ -50,7 +50,7 @@
 					</a>
 
 					<video src="media/drone.mp4" poster="media/drone.jpg" controlsList="nofullscreen" playsinline
-						autoplay preload muted loop class="hero__ball"></video>
+						autoplay preload muted loop></video>
 				</div>
 
 				<div class="fx-w item-wrap">
@@ -101,7 +101,7 @@
 			<h2>Отправить заявку</h2>
 			<p>Перезвоним в течение 5 минут</p>
 			<form action="send.php">
-				<button type="reset" class="modal__close">&times;</button>
+				<button class="modal__close">&times;</button>
 				<label for="name">Имя:</label>
 				<input required type="text" name="name" id="name" placeholder="Введите имя">
 				<label for="name">Телефон:</label>
@@ -111,9 +111,8 @@
 					<input checked required type="checkbox" id="checkbox">
 					<label for="checkbox">Я согласен на обработку персональных данных</label>
 				</div>
-				<button type="submit" class="btn fx-ac fx-jc">Оставить заявку
-					<img src="media/arr-right.svg" alt="arr">
-				</button>
+				<button type="submit" class="btn fx-ac fx-jc">Оставить заявку<img src="media/arr-right.svg"
+						alt="arr"></button>
 			</form>
 		</div>
 	</div>
@@ -128,62 +127,7 @@
 			<p>Мы получили ваши данные и свяжемся с вами в ближайшее время</p>
 		</div>
 	</div>
-
-	<script>
-		const btn = document.querySelector('#btn');
-		const menu = document.querySelector('#menu');
-		const body = document.body;
-		btn.onclick = () => { [btn, menu, body].forEach(el => { el.classList.toggle('is_active') }) }
-
-		const mClose = document.querySelectorAll('.modal__close');
-		const mBtns = document.querySelectorAll('a[href="#request"]');
-		const mModals = document.querySelectorAll('.modal');
-		const mRequest = document.querySelector('#request');
-
-		mBtns.forEach(el => {
-			el.onclick = () => {
-				cFS()
-				event.preventDefault();
-				[mRequest, body].forEach(el => { el.classList.add('is_active') })
-			}
-		})
-
-		function cFS(inst) {
-			var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-			body.style.marginRight = inst === 0 ? '0' : scrollbarWidth > 0 ? `${scrollbarWidth}px` : '';
-		}
-
-		mClose.forEach(el => {
-			el.onclick = () => {
-				let elParent = el.closest('.modal');
-				[elParent, body].forEach(el => el.classList.remove('is_active'));
-				cFS(0);
-			};
-		});
-
-		mModals.forEach(el => {
-			el.addEventListener('click', (event) => {
-				if (!event.target.closest('.modal-content')) {
-					[el, body].forEach(el => el.classList.remove('is_active'));
-					cFS(0);
-				}
-			});
-		});
-
-
-		function mask(e) {
-			let value = e.target.value.replace(/\D/g, '').slice(1);
-			e.target.value = "+7 " + (value.length ? `(${value.slice(0, 3)}` : '') +
-				(value.length > 3 ? `) ${value.slice(3, 6)}` : '') +
-				(value.length > 6 ? `-${value.slice(6, 8)}` : '') +
-				(value.length > 8 ? `-${value.slice(8, 10)}` : '');
-		};
-		let tel = document.getElementById('tel');
-		tel.addEventListener('input', mask);
-		tel.addEventListener('focus', mask);
-
-	</script>
-
+	<script src="js/scripts.js?ver=13"></script>
 </body>
 
 </html>

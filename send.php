@@ -1,5 +1,6 @@
 <?php
 
+
 $name = $_POST['name'];
 $contact = $_POST['tel'];
 $arr = array(
